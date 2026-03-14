@@ -1,10 +1,18 @@
 [
   {
-    "name": ""Yabanci Dizi"",
+    "name": "csmrkstevn",
+    "internalName": "csmrkstevn",
     "url": "https://raw.githubusercontent.com/mrkstevn-ui/csmrkstevn/builds/ExampleProvider.cs3",
+    "repositoryUrl": "https://github.com/mrkstevn-ui/csmrkstevn",
     "version": 1,
     "authors": ["mrkstevn-ui"],
-    "description": "YabanciDizi Eklentisi",
-    "language": "tr"
+    "description": "YabanciDizi ve Film Eklentisi",
+    "language": "tr",
+    "tvTypes": [
+      "Movie",
+      "TvSeries"
+    ],
+    "iconUrl": "",
+    "apiVersion": 1
   }
 ]
