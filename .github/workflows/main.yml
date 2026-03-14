@@ -7,7 +7,6 @@ on:
       - main
   workflow_dispatch:
 
-# Bu kısım o uyarıyı silecek olan sihirli değnek
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -20,6 +19,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -33,10 +34,18 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew make
 
+    # Burası kritik: Eğer klasör ismi farklıysa bile dosyaları bulup çıkarır
+    - name: Check and List Builds
+      run: |
+        ls -R
+        mkdir -p final_builds
+        find . -name "*.cs3" -exec cp {} final_builds/ \;
+        find . -name "plugins.json" -exec cp {} final_builds/ \;
+
     - name: Push to builds branch
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: builds
-        publish_dir: ./builds
+        publish_dir: ./final_builds
         force_orphan: true
