@@ -10,4 +10,5 @@ class YabanciDiziPlugin : Plugin() {
         // İsimler birebir aynı olmak zorunda
         registerMainAPI(YabanciDiziProvider())
     }
+
 }

@@ -101,4 +101,5 @@ class YabanciDiziProvider : MainAPI() {
 
         return true
     }
+
 }
