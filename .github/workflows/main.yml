@@ -7,6 +7,10 @@ on:
       - main
   workflow_dispatch:
 
+# Bu kısım o uyarıyı silecek olan sihirli değnek
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
